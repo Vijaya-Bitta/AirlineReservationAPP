@@ -9,5 +9,9 @@ namespace AirlineReservationApp
 	{
 
 	}
+	void SetPassengerFirstName(const std::string& firstName)
+	{
+
+	}
 	
 }
