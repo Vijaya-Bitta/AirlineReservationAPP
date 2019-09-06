@@ -153,10 +153,12 @@
   <ItemGroup>
     <ClCompile Include="AirlineReservationApp.cpp" />
     <ClCompile Include="Database.cpp" />
+    <ClCompile Include="Flight.cpp" />
     <ClCompile Include="Passenger.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Database.h" />
+    <ClInclude Include="Flight.h" />
     <ClInclude Include="Passenger.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
