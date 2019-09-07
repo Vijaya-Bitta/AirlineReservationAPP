@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Flight.h"
 #include <algorithm>
 #include <iostream>
@@ -7,8 +8,13 @@ using namespace std;
 namespace AirlineReservationApp
 {
 	
-	Flight::Flight(const std::string& Destination, const std::string& Departure, int SeatAvailable, int flightNumber) :
-		mDestination(Destination), mDeparture(Departure), mSeatsAvailable(SeatAvailable), mFlightNumber(flightNumber) {}
+	Flight::Flight(const std::string& Destination, const std::string& Departure, int SeatsAmount, int flightNumber) :
+		mDestination(Destination), mDeparture(Departure), mFlightNumber(flightNumber) {
+		for (int i = 1; i <= SeatsAmount; i++)
+		{
+			mSeatsAvailable.push_back(i);
+		}
+	}
 	
 	void Flight::SetDestination(const std::string& Destination)
 	{
@@ -52,7 +58,7 @@ namespace AirlineReservationApp
 		return mPassengers;
 	}
 
-	void Flight::ReserveSeat(Passenger passenger)
+	void Flight::ReserveSeat(Passenger& passenger)
 	{
 		mPassengers.push_back(passenger);
 		int seatNumber = passenger.GetSeatNumber();
@@ -60,6 +66,6 @@ namespace AirlineReservationApp
 	}
 	void Flight::Display() const
 	{
-		cout << "#" << GetFlightNumber() << " From " << GetDestination() << " To " << GetDeparture() << endl;
+		cout << "#" << GetFlightNumber() << " From " << GetDeparture() << " To " << GetDestination() << endl;
 	}
 }

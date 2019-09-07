@@ -1,16 +1,13 @@
 // AirlineReservationApp.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-#include "Flight.h"
+#include "stdafx.h"
 #include "Database.h"
-#include "Passenger.h"
 #include <iostream>
-#include <vector>
+
 using namespace AirlineReservationApp;
 
 using namespace std;
-//namespace  AirlineReservationApp
-//{
-//	
+
 int DisplayMenu();
 void ReserveSeat(Database& db);
 void PresentFlightsSchedule(Database& db);
@@ -20,10 +17,8 @@ void PassengerTicketInfomation(Database& db);
 Flight& ChooseFlight(Database& db);
 	int main()
 	{
-
 		Database db;
 		
-
 		Flight f1("California", "Seattle", 30,001);
 		Flight f2("Loss Angles", "Newyork",50,002);
 		Flight f3("Seattle", "Loss Vegas", 20,003);
@@ -35,9 +30,6 @@ Flight& ChooseFlight(Database& db);
 		db.AddFlight(f3);
 		db.AddFlight(f4);
 		db.AddFlight(f5);
-
-
-		
 
 
 		while (true) {
@@ -81,7 +73,7 @@ Flight& ChooseFlight(Database& db);
 		cout << "2) Flight Schedule" << endl;
 		cout << "3) Display passenger info" << endl;
 		cout << "4) Fligt Details" << endl;
-		cout << "5) User Ticket Information" << endl;
+		cout << "5) Passenger Ticket Information" << endl;
 		cout << "0) Quit" << endl;
 		cout << endl;
 		cout << "---> ";
@@ -117,11 +109,11 @@ Flight& ChooseFlight(Database& db);
 		string firstName;
 		string lastName;
 		int passengerId;
-		cout << "Your First name? ";
+		cout << "Your First name: ";
 		cin >> firstName;
-		cout << "Last name? ";
+		cout << "Last name: ";
 		cin >> lastName;
-		cout << "Your Id number? ";
+		cout << "Your Id number: ";
 		cin >> passengerId;
 
 		Passenger* passenger = new Passenger(firstName, lastName, passengerId);
@@ -197,7 +189,8 @@ Flight& ChooseFlight(Database& db);
 		cout << "Free seats left: " << freeSeats.size() << endl;
 		cout << "Seats booked: " << seatsBooked.size() << endl;
 	}
-////}
+
+
 
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

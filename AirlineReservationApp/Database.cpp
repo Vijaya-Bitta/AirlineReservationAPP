@@ -1,6 +1,8 @@
+#include "stdafx.h"
 #include "Database.h"
 #include <iostream>
-#include <string>
+#include <stdexcept>
+
 using namespace std;
 namespace AirlineReservationApp
 {

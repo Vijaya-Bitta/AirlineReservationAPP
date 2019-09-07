@@ -11,8 +11,8 @@ namespace AirlineReservationApp
 	public:
 		Flight() = default;
 		void Display() const;
-		void ReserveSeat(Passenger passenger);
-		Flight(const std::string& Destination, const std::string& Departure, int SeatAvailable, int flightNumber);
+		void ReserveSeat(Passenger& passenger);
+		Flight(const std::string& Destination, const std::string& Departure, int SeatsAmount, int flightNumber);
 		void SetDestination(const std::string& Destination);
 		const std::string GetDestination() const;
 		void SetDeparture(const std::string& Departure);
