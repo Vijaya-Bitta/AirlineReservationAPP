@@ -8,8 +8,12 @@ using namespace std;
 namespace AirlineReservationApp
 {
 	
-	Flight::Flight(const std::string& Destination, const std::string& Departure, int SeatsAmount, int flightNumber) :
-		mDestination(Destination), mDeparture(Departure), mFlightNumber(flightNumber) {
+	Flight::Flight(const std::string& Destination,
+		const std::string& Departure, int SeatsAmount, 
+		int flightNumber, const string& date,
+		const std::string& arrivalTime, const std::string& departTime) :
+		mDestination(Destination), mDeparture(Departure), mFlightNumber(flightNumber),mFlightDate(date),
+		mArriveTime(arrivalTime),mDepartTime(departTime){
 		for (int i = 1; i <= SeatsAmount; i++)
 		{
 			mSeatsAvailable.push_back(i);
@@ -32,6 +36,38 @@ namespace AirlineReservationApp
 	{
 		return mDeparture;
 	}
+
+	void Flight::setFlightDate(int flightDate)
+	{
+		mFlightDate = flightDate;
+	}
+	const std::string& Flight::getFlightDate() const
+	{
+		return mFlightDate;
+	}
+
+
+	void Flight::setDepartTime(const std::string& departtime)
+	{
+		mDepartTime = departtime;
+	}
+
+	const std::string& Flight::getDepartTime() const
+	{
+		return mDepartTime;
+	}
+
+	void Flight::setArriveTime(const std::string& arrivetime)
+	{
+		mArriveTime = arrivetime;
+	}
+
+	const std::string& Flight::getArriveTime() const
+	{
+		return mArriveTime;
+	}
+
+
 	void Flight::SetFlightNumber(int flightNumber)
 	{
 		mFlightNumber = flightNumber;
@@ -66,6 +102,6 @@ namespace AirlineReservationApp
 	}
 	void Flight::Display() const
 	{
-		cout << "#" << GetFlightNumber() << " From " << GetDeparture() << " To " << GetDestination() << endl;
+		cout << "#" << GetFlightNumber() << " From " << GetDeparture() << " To " << GetDestination()<<" On  "<<getFlightDate() << endl;
 	}
 }

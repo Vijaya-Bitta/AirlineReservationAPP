@@ -11,12 +11,26 @@ namespace AirlineReservationApp
 	public:
 		Flight() = default;
 		void Display() const;
+		Flight(const std::string& Destination, const std::string& Departure, 
+			int SeatsAmount, int flightNumber, const std::string& date, 
+			const std::string& arrivalTime, const std::string& departTime);
 		void ReserveSeat(Passenger& passenger);
-		Flight(const std::string& Destination, const std::string& Departure, int SeatsAmount, int flightNumber);
+		
 		void SetDestination(const std::string& Destination);
 		const std::string GetDestination() const;
 		void SetDeparture(const std::string& Departure);
 		const std::string GetDeparture() const;
+
+
+		void setFlightDate(int flightDate);
+		const std::string& getFlightDate() const;
+
+		void setDepartTime(const std::string& departtime);
+		const std::string& getDepartTime() const;
+
+		void setArriveTime(const std::string& arrivetime);
+		const std::string& getArriveTime() const;
+
 		void SetFlightNumber(int flightNumber);
 		int GetFlightNumber() const;
 		void SetSeatsAvailble(const std::vector<int>& seatsAvailable);
@@ -26,6 +40,14 @@ namespace AirlineReservationApp
 	private:
 		std::string mDestination;
 		std::string mDeparture;
+
+		std::string mFlightDate;
+
+		std::string mDepartTime;
+		std::string mArriveTime;
+
+		//float mFlightDur;
+
 		int mFlightNumber = -1;
 		std::vector<Passenger> mPassengers;
 		std::vector<int> mSeatsAvailable;

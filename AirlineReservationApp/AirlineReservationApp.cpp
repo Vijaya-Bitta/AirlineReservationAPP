@@ -19,11 +19,11 @@ Flight& ChooseFlight(Database& db);
 	{
 		Database db;
 		
-		Flight f1("California", "Seattle", 30,001);
-		Flight f2("Loss Angles", "Newyork",50,002);
-		Flight f3("Seattle", "Loss Vegas", 20,003);
-		Flight f4("Seattle", "portland", 30,004);
-		Flight f5("California", "New Jersey", 30, 005);
+		Flight f1("California", "Seattle", 30,001,"09/08/2019","8:30 AM","12:30 PM");
+		Flight f2("Loss Angles", "Newyork",50,002, "09/09/2019", "6:40 AM", "2:00 PM");
+		Flight f3("Seattle", "Loss Vegas", 20,003, "09/10/2019", "10:00 AM", "1:00 PM");
+		Flight f4("Seattle", "portland", 30,004, "09/11/2019", "9:30 AM", "10:30 PM");
+		Flight f5("California", "New Jersey", 30, 005, "09/12/2019", "7:30 AM", "11:40 PM");
 
 		db.AddFlight(f1);
 		db.AddFlight(f2);
@@ -198,6 +198,8 @@ Flight& ChooseFlight(Database& db);
 		vector<Passenger>& seatsBooked = flight.GetPassengers();
 		cout << "Free seats left: " << freeSeats.size() << endl;
 		cout << "Seats booked: " << seatsBooked.size() << endl;
+		cout << "Arrival Time: " << flight.getArriveTime() << endl;
+		cout << "Departure Time: " << flight.getDepartTime() << endl;
 	}
 
 
