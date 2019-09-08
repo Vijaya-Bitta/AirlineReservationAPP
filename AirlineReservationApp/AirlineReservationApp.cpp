@@ -123,19 +123,29 @@ Flight& ChooseFlight(Database& db);
 	void ReserveSeat(Database& db)
 	{
 		int chosenSeat;
+		int numberOfSeats;
 
 		Flight& flight = ChooseFlight(db);
+		cout << "Number of seats you want to book:" << endl;
+		cin >> numberOfSeats;
 		vector<int>& freeSeats = flight.GetSeatsAvailble();
+
 		for (int seat : freeSeats)
 		{
 			cout << seat << " ";
 		}
-		cout << endl << "Choose Your Seat " << endl;
-		cin >> chosenSeat;
 
-		Passenger& passenger = GetPassengerInfo();
-		passenger.SetSeatnumber(chosenSeat);
-		flight.ReserveSeat(passenger);
+		for (int i = 0; i < numberOfSeats; i++)
+		{
+			cout << endl << "Choose Your Seat " << endl;
+			cin >> chosenSeat;
+
+			Passenger& passenger = GetPassengerInfo();
+			passenger.SetSeatnumber(chosenSeat);
+			flight.ReserveSeat(passenger);
+		}
+		cout << "-------------------------"<<endl;
+		cout << "your Seats are booked:" << endl;
 	}
 	void DisplayPassengerInfo(Database& db)
 	{
